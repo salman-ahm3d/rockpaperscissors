@@ -23,6 +23,13 @@ function addEventsToButtons(buttons) {
     })
 }
 
+function removeEventsFromButtons(buttons) {
+    /*buttons.forEach((button) => {
+        button.removeEventListener('click');
+    })
+    */
+}
+
 function updateScore(gameResult) {
     if (gameResult.includes('player')) {
         console.log(gameResult);
@@ -54,6 +61,32 @@ function playRound(playerDecision, cpuDecision) {
         updateScore('player');
     } else {
         updateScore('cpu');
+    }
+
+    checkFiveWins();
+}
+
+function declareVictor(victor) {
+    const resultDiv = document.createElement('div');
+    resultDiv.classList.add('result-container');
+    const result = document.createElement('div');
+    result.classList.add('result');
+    if (victor === 'player') {
+        result.textContent = `Player wins!`;
+        resultDiv.appendChild(result);
+        document.body.appendChild(resultDiv);
+    } else {
+        result.textContent = `CPU wins!`;
+        resultDiv.appendChild(result);
+        document.body.appendChild(resultDiv);
+    }
+}
+
+function checkFiveWins() {
+    if (playerWins == 5) {
+        declareVictor('player');
+    } else if (cpuWins == 5) {
+        declareVictor('cpu');
     }
 }
 
