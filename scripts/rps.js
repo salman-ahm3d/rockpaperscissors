@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll('.choice');
 let playerDecision;
-let cpuDecision = getCPUDecision();
+let cpuDecision;
 
 
 
@@ -17,7 +17,9 @@ function addEventsToButtons(buttons) {
     })
 }
 
+function game(playerDecision, cpuDecision) {
+    
+}
+
 
 addEventsToButtons(buttons);
-
-console.log(cpuDecision+playerDecision);
