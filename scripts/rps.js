@@ -8,6 +8,7 @@ let ties = 0;
 
 
 
+
 function getCPUDecision() {
     const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * 3)];
@@ -23,11 +24,15 @@ function addEventsToButtons(buttons) {
     })
 }
 
-function removeEventsFromButtons(buttons) {
-    /*buttons.forEach((button) => {
-        button.removeEventListener('click');
-    })
-    */
+function endGame() {
+    const choiceContainer = document.getElementsByClassName('choice-container');
+    choiceContainer.item(0).style.display = 'none';
+    //const resetContainer = document.createElement('div');
+    //resetContainer.classList.add('')
+}
+
+function resetGame() {
+
 }
 
 function updateScore(gameResult) {
@@ -80,6 +85,8 @@ function declareVictor(victor) {
         resultDiv.appendChild(result);
         document.body.appendChild(resultDiv);
     }
+
+    endGame();
 }
 
 function checkFiveWins() {
