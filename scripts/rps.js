@@ -6,6 +6,8 @@ let playerWins = 0;
 let cpuWins = 0;
 let ties = 0;
 
+let resultContainer = document.querySelector('.reset-container');
+resultContainer.style.display = 'none';
 
 
 
@@ -27,29 +29,33 @@ function addEventsToButtons(buttons) {
 function endGame() {
     const choiceContainer = document.getElementsByClassName('choice-container');
     choiceContainer.item(0).style.display = 'none';
-    //const resetContainer = document.createElement('div');
-    //resetContainer.classList.add('')
+    resultContainer.style.display = 'block';
+    const resetBtn = document.querySelector('.reset-btn');
+    resetBtn.addEventListener('click', resetGame);
 }
 
 function resetGame() {
-
+    updateScore('reset');
+    resultContainer.style.display = 'none';
 }
 
 function updateScore(gameResult) {
     if (gameResult.includes('player')) {
-        console.log(gameResult);
         playerWins++;
-        const result = document.querySelector('.player-wins');
-        result.textContent = `Player Wins: ${playerWins}`;
     } else if (gameResult.includes('cpu')) {
         cpuWins++;
-        const result = document.querySelector('.cpu-wins');
-        result.textContent = `CPU Wins: ${cpuWins}`;
+    } else if (gameResult.includes('reset')) {
+        playerWins = cpuWins = ties = 0;
     } else {
         ties++;
-        const result = document.querySelector('.ties');
-        result.textContent = `Ties: ${ties}`;
     }
+
+    const playerResult = document.querySelector('.player-wins');
+    playerResult.textContent = `Player Wins: ${playerWins}`;
+    const tieResult = document.querySelector('.ties');
+    tieResult.textContent = `Ties: ${ties}`;
+    const cpuResult = document.querySelector('.cpu-wins');
+    cpuResult.textContent = `CPU Wins: ${cpuWins}`;
 }
 
 function playRound(playerDecision, cpuDecision) {
