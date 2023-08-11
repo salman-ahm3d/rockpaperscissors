@@ -9,6 +9,8 @@ let ties = 0;
 let resultContainer = document.querySelector('.reset-container');
 resultContainer.style.display = 'none';
 
+const choiceContainer = document.getElementsByClassName('choice-container');
+
 
 
 function getCPUDecision() {
@@ -27,7 +29,6 @@ function addEventsToButtons(buttons) {
 }
 
 function endGame() {
-    const choiceContainer = document.getElementsByClassName('choice-container');
     choiceContainer.item(0).style.display = 'none';
     resultContainer.style.display = 'block';
     const resetBtn = document.querySelector('.reset-btn');
@@ -36,7 +37,10 @@ function endGame() {
 
 function resetGame() {
     updateScore('reset');
-    resultContainer.style.display = 'none';
+    resultContainer.style.display = 'none'; 
+    choiceContainer.item(0).style.display = 'block';
+
+
 }
 
 function updateScore(gameResult) {
@@ -78,18 +82,14 @@ function playRound(playerDecision, cpuDecision) {
 }
 
 function declareVictor(victor) {
-    const resultDiv = document.createElement('div');
-    resultDiv.classList.add('result-container');
     const result = document.createElement('div');
     result.classList.add('result');
     if (victor === 'player') {
         result.textContent = `Player wins!`;
-        resultDiv.appendChild(result);
-        document.body.appendChild(resultDiv);
+        resultContainer.appendChild(result);
     } else {
         result.textContent = `CPU wins!`;
-        resultDiv.appendChild(result);
-        document.body.appendChild(resultDiv);
+        resultContainer.appendChild(result);
     }
 
     endGame();
