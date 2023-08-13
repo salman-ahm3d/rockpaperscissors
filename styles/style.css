@@ -9,12 +9,14 @@ body {
 .banner {
     border: 2px solid black;
     display: flex;
+    height: 15vh;
 }
 
 .game-box {
     display: flex;
     justify-content: space-around ;
     border: 2px solid darkblue;
+    height: 20vh;
 }
 
 .player-box {
