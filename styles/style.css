@@ -1,8 +1,51 @@
+* {
+    padding: 5px;
+}
 body {
     margin: 0;
     padding: 0;
 }
 
-.choice-container {
+.banner {
+    border: 2px solid black;
     display: flex;
 }
+
+.game-box {
+    display: flex;
+    justify-content: space-around ;
+    border: 2px solid darkblue;
+}
+
+.player-box {
+    border: 2px solid darkkhaki;
+}
+.result-box {
+    border: 2px solid darkred;
+}
+.cpu-box {
+    border: 2px solid darkgreen;
+}
+
+.results-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+}
+
+.player-wins {
+    border: 2px solid goldenrod;
+}
+
+.cpu-wins {
+    border: 2px solid brown;
+}
+
+.reset-button {
+    border: 2px solid fuchsia;
+}
+
+
+
+
+
