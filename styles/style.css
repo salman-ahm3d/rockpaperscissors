@@ -1,9 +1,6 @@
 * {
     padding: 5px;
-}
-body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
 }
 
 .banner {
@@ -45,6 +42,11 @@ body {
 
 .reset-button {
     border: 2px solid fuchsia;
+}
+
+.footer {
+    display: flex;
+    border: 2px solid salmon;
 }
 
 
