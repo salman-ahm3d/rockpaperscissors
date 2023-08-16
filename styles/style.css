@@ -91,5 +91,9 @@
     align-items: center;
 }
 
+.selected {
+    border: 2px solid green;
+}
+
 
 
