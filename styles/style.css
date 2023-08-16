@@ -50,9 +50,6 @@
     border: 2px solid brown;
 }
 
-.reset-button {
-    border: 2px solid fuchsia;
-}
 
 .footer {
     display: flex;
@@ -81,6 +78,18 @@
     align-items: center;
 }
 
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid fuchsia;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
