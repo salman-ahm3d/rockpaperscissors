@@ -7,6 +7,9 @@
     border: 2px solid black;
     display: flex;
     height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-box {
@@ -16,19 +19,26 @@
     height: 20vh;
 }
 
-.player-box {
+.player-box, .cpu-box {
     border: 2px solid darkkhaki;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animation-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .result-box {
     border: 2px solid darkred;
 }
-.cpu-box {
-    border: 2px solid darkgreen;
-}
 
 .results-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     border: 2px solid black;
 }
 
@@ -63,6 +73,12 @@
 .animation-image {
     width: 20%;
     height: auto;
+}
+
+.result-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
