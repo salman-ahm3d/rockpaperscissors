@@ -49,6 +49,16 @@
     border: 2px solid salmon;
 }
 
+.choice-container {
+    display: flex;
+    border: 2px solid salmon;
+}
+
+.rock, .scissor, .paper {
+    display: flex;
+    border: 2px solid salmon;
+}
+
 
 
 
