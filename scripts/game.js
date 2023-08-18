@@ -40,6 +40,8 @@ function resetGame() {
     cpuResults.textContent = `CPU wins: ${cpuWins}`;
     result.textContent = `No one`;
     enablePlayerButtons();
+    playerAnimation.src = "../images/shaking.gif";
+    cpuAnimation.src = "../images/shaking.gif";
 }
 
 
@@ -59,6 +61,12 @@ function playRound(playerDecision, cpuDecision) {
         updateScore('CPU');
     }
 
+    setTimeout(() => {
+        playerAnimation.src = "../images/shaking.gif";
+        cpuAnimation.src = "../images/shaking.gif";
+    }, 500);
+
+    
     checkFiveWins();
 
 }
