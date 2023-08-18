@@ -115,8 +115,8 @@ function addEventListenerToPlayerButtons() {
         button.addEventListener("click", () => {
             playerDecision = button.classList[0];
             cpuDecision = getCPUDecision();
-            playerAnimation.src = `../images/${playerDecision}.gif`;
-            cpuAnimation.src = `../images/${cpuDecision}.gif`;
+            playerAnimation.src = `./images/${playerDecision}.gif`;
+            cpuAnimation.src = `./images/${cpuDecision}.gif`;
             playRound(playerDecision, cpuDecision);
         })
     })
