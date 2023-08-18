@@ -47,7 +47,6 @@ function resetGame() {
 
 function playRound(playerDecision, cpuDecision) {
     let gameDecision =  (playerDecision + cpuDecision).toLowerCase().trim();
-    console.log(gameDecision);
 
     const playerWinConditions = ["rockscissors", "scissorspaper", "paperrock"];
 
