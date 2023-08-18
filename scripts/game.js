@@ -10,6 +10,10 @@ const resetButton = document.querySelector(".reset-btn");
 const playerResults = document.querySelector(".player-wins");
 const cpuResults = document.querySelector(".cpu-wins");
 const result = document.querySelector(".result-box");
+const playerAnimation = document.querySelector(".player-box .animation-box .animation-image");
+const cpuAnimation = document.querySelector(".cpu-box .animation-box .animation-image");
+
+
 
 
 
@@ -23,13 +27,10 @@ function getCPUDecision() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function addHighlighting(button) {
-    button.classList.add('selected');
-    
-}
-
-function removeHighlighting(button) {
-    button.classList.remove('selected');
+function removeEventListenerFromPlayerButtons() {
+    playerButtons.forEach((button) => {
+        button.removeEventListener("click",makePlayerButtonsClickable);
+    })
 }
 
 function resetGame() {
@@ -38,6 +39,7 @@ function resetGame() {
     playerResults.textContent = `Player wins: ${playerWins}`;
     cpuResults.textContent = `CPU wins: ${cpuWins}`;
     result.textContent = `No one`;
+    enablePlayerButtons();
 }
 
 
@@ -45,7 +47,7 @@ function playRound(playerDecision, cpuDecision) {
     let gameDecision =  (playerDecision + cpuDecision).toLowerCase().trim();
     console.log(gameDecision);
 
-    const playerWinConditions = ["rockscissor", "scissorpaper", "paperrock"];
+    const playerWinConditions = ["rockscissors", "scissorspaper", "paperrock"];
 
     
 
@@ -57,6 +59,37 @@ function playRound(playerDecision, cpuDecision) {
         updateScore('CPU');
     }
 
+    checkFiveWins();
+
+}
+
+function checkFiveWins() {
+    if (playerWins == 5) {
+        declareVictor('player');
+    } else if (cpuWins == 5) {
+        declareVictor('cpu');
+    }
+}
+
+function declareVictor(winner) {
+    if (winner.includes('player')) {
+        result.textContent = 'Player wins!';
+    } else {
+        result.textContent = 'CPU wins!';
+    }
+    disablePlayerButtons();
+
+}
+
+function disablePlayerButtons() {
+    playerButtons.forEach((button) => {
+        button.disabled = true;
+    })
+}
+function enablePlayerButtons() {
+    playerButtons.forEach((button) => {
+        button.disabled = false;
+    })
 }
 
 function updateScore(decision) {
@@ -75,11 +108,20 @@ function addEventListenerToPlayerButtons() {
         button.addEventListener("click", () => {
             playerDecision = button.classList[0];
             cpuDecision = getCPUDecision();
+            playerAnimation.src = `../images/${playerDecision}.gif`;
+            cpuAnimation.src = `../images/${cpuDecision}.gif`;
             playRound(playerDecision, cpuDecision);
         })
     })
 }
 
-addEventListenerToResetButton();
-addEventListenerToPlayerButtons();
+function initialize() {
+    addEventListenerToResetButton();
+    addEventListenerToPlayerButtons();
+    resetGame();
+}
+
+initialize();
+
+
     
